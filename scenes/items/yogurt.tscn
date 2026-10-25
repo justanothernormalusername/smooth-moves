@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://varmnw7qpbn6"]
+
+[ext_resource type="Texture2D" uid="uid://b0u5rg88q8yed" path="res://assets/yogurt.png" id="1_u5aae"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xngju"]
+size = Vector2(136, 118)
+
+[node name="Yogurt" type="RigidBody2D" unique_id=1326309326]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=831248107]
+position = Vector2(-1.9999995, 1.0000001)
+rotation = 0.09894528
+texture = ExtResource("1_u5aae")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=493966774]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_xngju")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cpxnxwihvl4ia"]
+
+[ext_resource type="Texture2D" uid="uid://ytpugtewhq32" path="res://assets/strawberry.png" id="1_xsxxy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ksmus"]
+radius = 60.373844
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ra75h"]
+radius = 35.8469
+
+[node name="Strawberry" type="RigidBody2D" unique_id=1326309326]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=831248107]
+position = Vector2(-2, -6)
+texture = ExtResource("1_xsxxy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=480873961]
+position = Vector2(-22.999998, 6)
+rotation = 0.4106335
+shape = SubResource("CircleShape2D_ksmus")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="." unique_id=493966774]
+position = Vector2(-36.999996, 73)
+rotation = 0.4106335
+shape = SubResource("CircleShape2D_ra75h")

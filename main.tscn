@@ -1,3 +1,151 @@
-[gd_scene format=3 uid="uid://c3qf50w060avx"]
+[gd_scene format=4 uid="uid://c3qf50w060avx"]
+
+[ext_resource type="Texture2D" uid="uid://rjp3mxehcc6c" path="res://assets/background.png" id="1_0xm2m"]
+[ext_resource type="Script" uid="uid://b1rkwie7mfwbi" path="res://scripts/main.gd" id="1_272bh"]
+[ext_resource type="PackedScene" uid="uid://c02daqcggt2if" path="res://scenes/player.tscn" id="2_h2yge"]
+[ext_resource type="Texture2D" uid="uid://ccef47jop5ck5" path="res://assets/floor.png" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://bby87noi8ddwq" path="res://assets/milk.png" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://c8ci8q0f5du2w" path="res://assets/blender.png" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://bbsy1l8qig33k" path="res://scenes/items/blueberry.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://cpxnxwihvl4ia" path="res://scenes/items/strawberry.tscn" id="6_kek77"]
+[ext_resource type="Script" uid="uid://dvdx7knx2wjlf" path="res://scripts/milk_carton.gd" id="7_efxa6"]
+[ext_resource type="PackedScene" uid="uid://bewnmsfbfaoci" path="res://scenes/drawn_ramp.tscn" id="8_5vw27"]
+[ext_resource type="PackedScene" uid="uid://ce10rfw5ixl8v" path="res://scenes/items/milk.tscn" id="9_dg77c"]
+[ext_resource type="PackedScene" uid="uid://varmnw7qpbn6" path="res://scenes/items/yogurt.tscn" id="10_4c57u"]
+[ext_resource type="Script" uid="uid://dwilqdhm1yrpm" path="res://scripts/blender.gd" id="11_2cqfq"]
+[ext_resource type="Texture2D" uid="uid://cpimtb1opg6hy" path="res://assets/blender juice.png" id="12_yaehf"]
+[ext_resource type="PackedScene" uid="uid://cbgyub7lrfavr" path="res://scenes/items/grape_green.tscn" id="13_w48qg"]
+[ext_resource type="AudioStream" uid="uid://cuc1frcioqvo4" path="res://assets/sound_garage-blender-2-fx-306164.mp3" id="13_yaehf"]
+[ext_resource type="PackedScene" uid="uid://1tot3nt3aqd2" path="res://scenes/items/grape.tscn" id="14_vivmo"]
+[ext_resource type="Script" uid="uid://cds4kb7xothre" path="res://scripts/void.gd" id="18_074og"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_272bh"]
+texture = ExtResource("3_h2yge")
+texture_region_size = Vector2i(64, 64)
+1:50/0 = 0
+2:24/0 = 0
+1:11/0 = 0
+1:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
+
+[sub_resource type="TileSet" id="TileSet_2apqw"]
+tile_size = Vector2i(64, 64)
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_272bh")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6ckcd"]
+size = Vector2(365, 565)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2apqw"]
+size = Vector2(252, 222.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yyap0"]
+size = Vector2(24223.625, 641)
 
 [node name="Main" type="Node2D" unique_id=548319386]
+script = ExtResource("1_272bh")
+
+[node name="Parallax2D" type="Parallax2D" parent="." unique_id=199553732]
+scroll_scale = Vector2(0.1, 0.1)
+
+[node name="Sprite2D" type="Sprite2D" parent="Parallax2D" unique_id=813296202]
+position = Vector2(728, 470)
+texture = ExtResource("1_0xm2m")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1967944332]
+tile_map_data = PackedByteArray("AAD9/wgAAQABAAsAAAD+/wgAAQABAAsAAAD//wgAAQABAAsAAAAAAAgAAQABAAsAAAABAAgAAQABAAsAAAACAAgAAQABAAsAAAADAAgAAQABAAsAAAAEAAgAAQABAAsAAAAFAAgAAQABAAsAAAAGAAgAAQABAAsAAAAHAAgAAQABAAsAAAAIAAgAAQABAAsAAAAJAAgAAQABAAsAAAAKAAgAAQABAAsAAAALAAgAAQABAAsAAAAMAAgAAQABAAsAAAANAAgAAQABAAsAAAAOAAgAAQABAAsAAAAPAAgAAQABAAsAAAAQAAgAAQABAAsAAAARAAgAAQABAAsAAAASAAgAAQABAAsAAAATAAgAAQABAAsAAAAUAAgAAQABAAsAAAAVAAgAAQABAAsAAAAWAAgAAQABAAsAAAAXAAgAAQABAAsAAAAYAAgAAQABAAsAAAAZAAgAAQABAAsAAAAaAAgAAQABAAsAAAAaAAkAAQABAAsAAAAZAAkAAQABAAsAAAAYAAkAAQABAAsAAAAXAAkAAQABAAsAAAAWAAkAAQABAAsAAAAVAAkAAQABAAsAAAAUAAkAAQABAAsAAAATAAkAAQABAAsAAAASAAkAAQABAAsAAAARAAkAAQABAAsAAAAQAAkAAQABAAsAAAAMAAkAAQABAAsAAAALAAkAAQABAAsAAAAKAAkAAQABAAsAAAAJAAkAAQABAAsAAAAIAAkAAQABAAsAAAAHAAkAAQABAAsAAAAGAAkAAQABAAsAAAAFAAkAAQABAAsAAAAEAAkAAQABAAsAAAADAAkAAQABAAsAAAACAAkAAQABAAsAAAABAAkAAQABAAsAAAAAAAkAAQABAAsAAAD//wkAAQABAAsAAAD+/wkAAQABAAsAAAD9/wkAAQABAAsAAAD8/wkAAQABAAsAAAANAAkAAQABAAsAAAAOAAkAAQABAAsAAAAPAAkAAQABAAsAAAAbAAkAAQABAAsAAAAbAAoAAQABAAsAAAAaAAoAAQABAAsAAAAZAAoAAQABAAsAAAAYAAoAAQABAAsAAAAXAAoAAQABAAsAAAAWAAoAAQABAAsAAAAVAAoAAQABAAsAAAAUAAoAAQABAAsAAAATAAoAAQABAAsAAAASAAoAAQABAAsAAAARAAoAAQABAAsAAAAQAAoAAQABAAsAAAAPAAoAAQABAAsAAAAOAAoAAQABAAsAAAANAAoAAQABAAsAAAAMAAoAAQABAAsAAAALAAoAAQABAAsAAAAKAAoAAQABAAsAAAAJAAoAAQABAAsAAAAIAAoAAQABAAsAAAAHAAoAAQABAAsAAAAGAAoAAQABAAsAAAAFAAoAAQABAAsAAAADAAoAAQABAAsAAAACAAoAAQABAAsAAAABAAsAAQABAAsAAAAAAAsAAQABAAsAAAD//wsAAQABAAsAAAD+/wsAAQABAAsAAAD9/wsAAQABAAsAAAD8/wsAAQABAAsAAAD9/woAAQABAAsAAAD+/woAAQABAAsAAAD//woAAQABAAsAAAAAAAoAAQABAAsAAAABAAoAAQABAAsAAAD8/woAAQABAAsAAAD8/wgAAQABAAsAAAAHAAsAAQABAAsAAAAGAAsAAQABAAsAAAAFAAsAAQABAAsAAAAEAAsAAQABAAsAAAADAAsAAQABAAsAAAACAAsAAQABAAsAAAAIAAsAAQABAAsAAAAJAAsAAQABAAsAAAAKAAsAAQABAAsAAAALAAsAAQABAAsAAAAMAAsAAQABAAsAAAANAAsAAQABAAsAAAAOAAsAAQABAAsAAAAPAAsAAQABAAsAAAAQAAsAAQABAAsAAAARAAsAAQABAAsAAAASAAsAAQABAAsAAAATAAsAAQABAAsAAAAUAAsAAQABAAsAAAAVAAsAAQABAAsAAAAWAAsAAQABAAsAAAAXAAsAAQABAAsAAAAYAAsAAQABAAsAAAAZAAsAAQABAAsAAAAaAAsAAQABAAsAAAAbAAsAAQABAAsAAAAbAAgAAQABAAsAAAD7/wgAAQABAAsAAAD6/wgAAQABAAsAAAD5/wgAAQABAAsAAAD4/wgAAQABAAsAAAD3/wgAAQABAAsAAAD2/wgAAQABAAsAAAD1/wgAAQABAAsAAAD0/wgAAQABAAsAAADz/wgAAQABAAsAAADy/wgAAQABAAsAAADy/wkAAQABAAsAAADy/woAAQABAAsAAADy/wsAAQABAAsAAADz/wsAAQABAAsAAADz/woAAQABAAsAAAD0/woAAQABAAsAAAD1/woAAQABAAsAAAD2/woAAQABAAsAAAD2/wsAAQABAAsAAAD3/wsAAQABAAsAAAD4/wsAAQABAAsAAAD5/wsAAQABAAsAAAD6/wsAAQABAAsAAAD7/wsAAQABAAsAAAD1/wsAAQABAAsAAAD0/wsAAQABAAsAAADz/wkAAQABAAsAAAD0/wkAAQABAAsAAAD1/wkAAQABAAsAAAD2/wkAAQABAAsAAAD3/wkAAQABAAsAAAD4/wkAAQABAAsAAAD5/wkAAQABAAsAAAD6/wkAAQABAAsAAAD7/wkAAQABAAsAAAD7/woAAQABAAsAAAD6/woAAQABAAsAAAD5/woAAQABAAsAAAD4/woAAQABAAsAAAD3/woAAQABAAsAAAAEAAoAAQABAAsAAAA=")
+tile_set = SubResource("TileSet_2apqw")
+
+[node name="Player" parent="." unique_id=729748222 instance=ExtResource("2_h2yge")]
+position = Vector2(422, -30)
+
+[node name="Blueberry" parent="." unique_id=1326309326 instance=ExtResource("6_7mycd")]
+position = Vector2(-66, 249)
+
+[node name="Strawberry" parent="." unique_id=696536184 instance=ExtResource("6_kek77")]
+
+[node name="Yogurt" parent="." unique_id=1039489704 instance=ExtResource("10_4c57u")]
+position = Vector2(69, 439)
+
+[node name="Milk" parent="." unique_id=144310895 instance=ExtResource("9_dg77c")]
+position = Vector2(101, 271)
+
+[node name="GrapeGreen" parent="." unique_id=1070207088 instance=ExtResource("13_w48qg")]
+position = Vector2(226, 335)
+
+[node name="Grape" parent="." unique_id=60089283 instance=ExtResource("14_vivmo")]
+position = Vector2(80, 126)
+
+[node name="Blender" type="Node2D" parent="." unique_id=2106246294]
+script = ExtResource("11_2cqfq")
+
+[node name="BlenderJuice" type="Sprite2D" parent="Blender" unique_id=821664930]
+visible = false
+position = Vector2(1270, 306.99997)
+scale = Vector2(1.675926, 1.675926)
+texture = ExtResource("12_yaehf")
+
+[node name="Blender" type="Sprite2D" parent="Blender" unique_id=1250743505]
+position = Vector2(1297, 330)
+scale = Vector2(1.6, 1.6)
+texture = ExtResource("5_lquwl")
+
+[node name="Area2D" type="Area2D" parent="Blender" unique_id=776873037]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Blender/Area2D" unique_id=500355239]
+position = Vector2(1270.5, 329.5)
+shape = SubResource("RectangleShape2D_6ckcd")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="Blender" unique_id=496958812]
+stream = ExtResource("13_yaehf")
+
+[node name="MilkCarton" type="Node2D" parent="." unique_id=1525743293]
+script = ExtResource("7_efxa6")
+
+[node name="Milk" type="Sprite2D" parent="MilkCarton" unique_id=814052423]
+position = Vector2(397, 453)
+texture = ExtResource("4_1bvp3")
+
+[node name="Area2D" type="Area2D" parent="MilkCarton" unique_id=608959582]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MilkCarton/Area2D" unique_id=556725492]
+position = Vector2(399, 475.25)
+shape = SubResource("RectangleShape2D_2apqw")
+
+[node name="DrawnRamp" parent="." unique_id=195288723 instance=ExtResource("8_5vw27")]
+
+[node name="Void" type="Area2D" parent="." unique_id=436727961]
+script = ExtResource("18_074og")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Void" unique_id=1138197619]
+position = Vector2(425, 2535)
+shape = SubResource("RectangleShape2D_yyap0")
+
+[node name="Spawns" type="Node2D" parent="." unique_id=1968165151]
+
+[node name="Marker2D" type="Marker2D" parent="Spawns" unique_id=1542670712]
+position = Vector2(-124, 6)
+
+[node name="Marker2D2" type="Marker2D" parent="Spawns" unique_id=1017529198]
+position = Vector2(82, 42)
+
+[node name="Marker2D3" type="Marker2D" parent="Spawns" unique_id=379374625]
+position = Vector2(275, 126)
+
+[node name="Marker2D4" type="Marker2D" parent="Spawns" unique_id=1364781127]
+position = Vector2(633, 446)
+
+[node name="Marker2D5" type="Marker2D" parent="Spawns" unique_id=539071105]
+position = Vector2(493, -108)
+
+[node name="Marker2D6" type="Marker2D" parent="Spawns" unique_id=735539124]
+position = Vector2(744, 101)
+
+[node name="Marker2D7" type="Marker2D" parent="Spawns" unique_id=860284869]
+position = Vector2(-283, 454)
+
+[node name="Marker2D8" type="Marker2D" parent="Spawns" unique_id=1526322043]
+position = Vector2(49, 420)
+
+[connection signal="body_entered" from="Blender/Area2D" to="Blender" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="MilkCarton/Area2D" to="MilkCarton" method="_on_area_2d_body_entered"]
+[connection signal="body_entered" from="Void" to="Void" method="_on_body_entered"]

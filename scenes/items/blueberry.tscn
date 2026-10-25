@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bbsy1l8qig33k"]
+
+[ext_resource type="Texture2D" uid="uid://dfitst1q4pwyd" path="res://assets/blueberry.png" id="1_1fuvi"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_hu3t5"]
+radius = 40.20973
+height = 112.94729
+
+[node name="Blueberry" type="RigidBody2D" unique_id=1326309326]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=831248107]
+texture = ExtResource("1_1fuvi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=480873961]
+rotation = 1.624152
+shape = SubResource("CapsuleShape2D_hu3t5")

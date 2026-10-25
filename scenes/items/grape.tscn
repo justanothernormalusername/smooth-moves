@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://1tot3nt3aqd2"]
+
+[ext_resource type="Texture2D" uid="uid://cgujtrjbxu8m2" path="res://assets/grape.png" id="1_scob4"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_scob4"]
+radius = 44.364285
+height = 121.20071
+
+[node name="Grape" type="RigidBody2D" unique_id=1326309326]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=831248107]
+position = Vector2(4, 1)
+texture = ExtResource("1_scob4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1315747160]
+position = Vector2(-1, 2)
+rotation = 0.88134176
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_scob4")

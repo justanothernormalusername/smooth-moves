@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://bewnmsfbfaoci"]
+
+[ext_resource type="Script" uid="uid://cyx4ato65g7ut" path="res://scripts/drawn_ramp.gd" id="1_rhwtd"]
+
+[node name="DrawnRamp" type="Node2D" unique_id=195288723]
+script = ExtResource("1_rhwtd")
+
+[node name="Line2D" type="Line2D" parent="." unique_id=1699819154]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1351571614]

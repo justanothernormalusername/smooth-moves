@@ -1,0 +1,52 @@
+[gd_scene format=3 uid="uid://c02daqcggt2if"]
+
+[ext_resource type="Script" uid="uid://bx3qjrqi08nrx" path="res://scripts/player.gd" id="1_g2els"]
+[ext_resource type="Texture2D" uid="uid://c0sa74086d1hr" path="res://assets/player.png" id="2_qhqgy"]
+[ext_resource type="Texture2D" uid="uid://dfitst1q4pwyd" path="res://assets/blueberry.png" id="3_dqkch"]
+[ext_resource type="FontFile" uid="uid://d4eh564m4yun" path="res://assets/augiepixel.ttf" id="4_qlg0r"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2apqw"]
+radius = 14.0
+height = 76.0
+
+[node name="Player" type="CharacterBody2D" unique_id=729748222]
+script = ExtResource("1_g2els")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=495394686]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_qhqgy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=742783083]
+shape = SubResource("CapsuleShape2D_2apqw")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1770372075]
+
+[node name="Control" type="Control" parent="." unique_id=35342645]
+z_index = 5
+layout_mode = 3
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+
+[node name="TextureRect" type="TextureRect" parent="Control" unique_id=984343133]
+layout_mode = 0
+offset_left = 495.0
+offset_top = -315.0
+offset_right = 615.0
+offset_bottom = -229.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_dqkch")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Control" unique_id=1265102211]
+layout_mode = 0
+offset_left = 564.0
+offset_top = -312.0
+offset_right = 604.0
+offset_bottom = -272.0
+theme_override_fonts/normal_font = ExtResource("4_qlg0r")
+theme_override_font_sizes/normal_font_size = 40
+text = "0"
+vertical_alignment = 1
