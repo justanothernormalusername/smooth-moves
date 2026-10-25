@@ -8,6 +8,10 @@ var drawing := false
 var points: PackedVector2Array = []
 var min_point_distance := 8.0
 
+func _ready() -> void:
+	line.default_color = Color("#d9d4d8")
+	line.width = 10.0
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

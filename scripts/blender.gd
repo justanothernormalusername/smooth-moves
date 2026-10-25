@@ -35,7 +35,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			var clone = body_scene.instantiate()
 			var random_marker = positions.pick_random()
 			clone.global_position = random_marker.global_position
-			body.get_parent().add_child(clone)
+			body.get_parent().call_deferred("add_child", clone)
 		body.queue_free()
 		audio_stream.play()
 		score += 1
